@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding='gb2312'?>
+<module name="ic">
+  <public>
+	<component remote="true" singleton="true"  tx="CMT">
+	  <interface>nc.itf.ic.IIc_invoiceMaintain</interface>
+	  <implementation>nc.impl.ic.Ic_invoiceMaintainImpl</implementation>
+	</component>
+
+  </public> 
+</module> 

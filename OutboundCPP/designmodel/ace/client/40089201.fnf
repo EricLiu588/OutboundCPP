@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="gbk"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="general" class="nc.pubapp.pade.code.funnode.FunNodePara">
+        <property name="moduleName" value="ic" />
+	    <property name="bpfPath" value="test.bpf" />
+	    <property name="funcode" value="40089201"/>
+	    <property name="funNodeName" value="transportinvoice"/>
+	    <property name="clientPackName" value="nc.ui.ic.transportinvoice"/>
+			  		<property name="dbilldDate" value="Billdate" />
+			    <property name="metaData" value="OutboundCPP\METADATA\ic_invoice.bmf" />
+	    <property name="xmlPath" value="OutboundCPP\src\client\nc\ui\ic\transportinvoice\ace\view\Ic_invoice_config.xml" />
+	    <property name="metaDataType" value="multiType" />
+	    <property name="funcregispath" value="OutboundCPP/designmodel/funcmodel/ic_invoice/funcregis/40089201.func" />
+	    <property name="quetempath" value="OutboundCPP/designmodel/templet/ic_invoice/querytemplet/40089201.qtf" />
+	    <property name="printtempath" value="OutboundCPP/designmodel/templet/ic_invoice/outtemplet/40089201.otf" />
+	    <property name="systembasepath" value="OutboundCPP/designmodel/systemplatebase/ic_invoice/40089201/40089201.stb" />
+	    <property name="extendSuffix" value=""/>
+	    <property name="uif2ModelFilePath" value="OutboundCPP\designmodel\ace\uif2model\40089201.umf"/>
+	    <property name="busiCompName" value="OutboundCPP"/>
+	    <property name="metaDataId" value="5b421f5c-a1e7-4746-bee4-4f265b64c6be"/>
+	</bean>
+	
+	<bean id="templet" class="nc.pubapp.pade.code.funnode.Templet">
+	    <property name="tempStyle" value="2" />
+	    <property name="nodeKey" value="" />
+		<property name="templetPath" value="OutboundCPP/designmodel/templet/ic_invoice/billtemplet/40089201.btf" />
+	</bean>
+
+	<bean id="BAEHpara" class="nc.pubapp.pade.code.funnode.BodyAfterEditHandlerPara">
+		<property name="itemList">
+			<list>
+									<bean  class="nc.pubapp.pade.code.funnode.EditHandleItemPara">
+						<property name="className" value="MaterialHandler" />
+						<property name="fullClassName"
+							value="nc.ui.ic.transportinvoice.handler.MaterialHandler" />
+						<property name="key" value="model" />
+						<property name="methodName" value="afterEdit" />
+					</bean>
+							</list>
+		</property>
+	</bean>
+
+	<bean id="BBEHpara" class="nc.pubapp.pade.code.funnode.BodyBeforeEditHandlerPara">
+		<property name="itemList">
+			<list>
+									<bean  class="nc.pubapp.pade.code.funnode.EditHandleItemPara">
+						<property name="className" value="MaterialHandler" />
+						<property name="fullClassName"
+							value="nc.ui.ic.transportinvoice.handler.MaterialHandler" />
+						<property name="key" value="model" />
+						<property name="methodName" value="beforeEdit" />
+					</bean>
+							</list>
+		</property>
+	</bean>
+	
+	<bean id="HTBEHpara" class="nc.pubapp.pade.code.funnode.HeadTailBeforeEditHandlerPara">
+	</bean>
+	
+	<bean id="HTAEHpara" class="nc.pubapp.pade.code.funnode.HeadTailAfterEditHandlerPara">
+	</bean>
+	
+	<bean id="SerPropara" class="nc.pubapp.pade.code.funnode.ServiceProxyPara">
+					<property name="queryByQueryScheme">
+			<bean class="nc.pubapp.pade.code.funnode.ServiceProxyItemPara">
+				<property name="fullClassName" value="nc.itf.ic.IIc_invoiceMaintain" />
+				<property name="itmClassName" value=".IIc_invoiceMaintain" />
+				<property name="methodName" value="query" />
+			</bean>
+		</property>
+				</bean>
+	
+	<bean id="FilePackNameBean" class="nc.pubapp.pade.code.engine.FilePackNamePara">
+    	<property name="filePackNameList">
+	    	<list>
+				     						       <value>nc.ui.ic.transportinvoice.handler.OrgChangedHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.handler.AceAddHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.handler.AceBodyAfterEditHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.handler.AceBodyBeforeEditHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.handler.AceHeadTailAfterEditHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.handler.AceHeadTailBeforeEditHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.handler.AceOrgChangedHandler.java</value>
+			       <value>nc.ui.ic.transportinvoice.ace.serviceproxy.AceIc_invoiceMaintainProxy.java</value>
+			       <value>nc.ui.ic.transportinvoice.action.Ic_invoiceAddAction.java</value>
+			       <value>nc.ui.ic.transportinvoice.action.Ic_invoiceDeleteAction.java</value>
+			       <value>nc.ui.ic.transportinvoice.action.Ic_invoiceEditAction.java</value>
+			       <value>nc.ui.ic.transportinvoice.action.CopyActionProcessor.java</value>
+			     			       <value>nc.ui.ic.transportinvoice.handler.MaterialHandler.java</value>
+			     			       <value>nc.ui.ic.transportinvoice.query.Ic_invoiceQueryConditionInitializer.java</value>
+		     </list>
+	   </property>
+	</bean>
+
+</beans>
